@@ -1,0 +1,20 @@
+## 色彩变换
+
+这是一份中山大学医学图像处理课程实验报告，描述《数字图像处理》[实验手册][lab]中06-01到06-04项目。
+
+### 项目06-01：色彩转换-RGB图片转换成“网络安全色彩”（Web safe color）
+
+程序非常简单，请直接参考[`void cvtToWebSafe(Mat&, Mat&)`][cvtToWebSafe]子函数。效果如下：
+
+原图片：
+
+![原图片](TargetImage.png)
+
+转换成Web safe color：
+
+![安全颜色](WebSafeColorResult.png)
+
+
+[lab]:https://onedrive.live.com/redir?resid=73E70F9DE102435A%212874
+[cvtToWebSafe]:https://github.com/kkcocogogo/Basic-Color-Manipulation/blob/master/cvtToWebSafe.cpp
+
