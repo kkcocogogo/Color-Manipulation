@@ -12,7 +12,6 @@ MainWindow::MainWindow(QWidget *parent)
     imageView->setScene(imageScene);
     slider = new QSlider(Qt::Horizontal);
     mainLayout = new QVBoxLayout;
-    sourceImage = new QImage;
 
     pixmapItem4display = new QGraphicsPixmapItem;
     imageScene->addItem(pixmapItem4display);
@@ -27,15 +26,18 @@ MainWindow::MainWindow(QWidget *parent)
 }
 
 void MainWindow::setImage() {
+
     QString imageDirectory =
             QFileDialog::getOpenFileName(
                 this,
                 tr("Open File"),
                 QDir::homePath(),
                 tr("Images (*.png *.jpg *.tif"));
-    sourceImage->load(imageDirectory);
-    pixmapItem4display->setPixmap(QPixmap::fromImage(*sourceImage));
-//    imageView->adjustSize();
+    // convert qstring to std::string so that we
+    sourceImage = cv::imread(imageDirectory.toStdString());
+
+    // convert sourceImage to QPixmap for displaying
+
 }
 
 void MainWindow::createActions() {

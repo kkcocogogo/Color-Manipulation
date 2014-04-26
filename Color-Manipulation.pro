@@ -14,9 +14,10 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-    cvt2websafe.cpp
+    clrman.cpp
 
-HEADERS  += mainwindow.h
+HEADERS  += mainwindow.h \
+    clrman.h
 
 win32 {
 # put windows configuration below

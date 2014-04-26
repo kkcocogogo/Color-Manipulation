@@ -13,11 +13,7 @@
 #include <QMenu>
 #include <QMenuBar>
 #include <QGraphicsPixmapItem>
-#include <opencv2/core/core.hpp>
-#include <opencv2/highgui/highgui.hpp>
-
-// when subfunctions are getting large in number, pack them in namespace to avoid name pollution
-void cvt2websafe(cv::Mat& src, cv::Mat& dst);
+#include "clrman.h" // holds all the opencv headers, functions
 
 class MainWindow : public QMainWindow
 {
@@ -29,7 +25,7 @@ public:
     ~MainWindow();
 
 private:
-
+    // build the GUI using Qt stuff
     QBoxLayout *mainLayout;
     QGraphicsView *imageView;
     QGraphicsScene *imageScene;
@@ -37,10 +33,12 @@ private:
     QGraphicsPixmapItem *pixmapItem4display;
     QAction *setImageAct;
     QMenu *fileMenu;
-    QImage *sourceImage;
 
     void createMenus();
     void createActions();
+
+    // opencv member goes here
+    cv::Mat sourceImage;
 
 private slots:
 
