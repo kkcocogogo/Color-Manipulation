@@ -39,15 +39,21 @@
 
 ### 项目06-03：直方图均衡
 
-对图片做直方图均衡的函数是`histoEqual`，代码简单易懂请直接阅读。这里只给出运行结果：
+对图片做直方图均衡的函数是`histoEqualSep`以及`histoEqual`，前者对RGB三个通道分别做直方图均衡，后者将图片转化至YUV空间，只对Y通道做直方图均衡，保护了色相信息。
+
+代码简单易懂请直接阅读。这里只给出运行结果：
 
 原图：
 
 ![original image](rgbImage.png)
 
-直方图均衡后：
+RGB通道分别做直方图均衡后：
 
 ![histogram equalization result](histoResult.png)
+
+对Y通道做直方图均衡后：
+
+![Y channel histogram equalization](historResult2.png)
 
 [clrman.cpp]:https://github.com/kkcocogogo/Color-Manipulation/blob/master/clrman.cpp
 [lab]:https://onedrive.live.com/redir?resid=73E70F9DE102435A%212874

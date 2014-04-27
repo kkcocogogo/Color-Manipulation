@@ -75,7 +75,7 @@ void clrman::pseudoColor(cv::Mat &gray_src, cv::Mat &rgb_dst) {
  * three channels separately
  * as a bonus it also takes gray scale image
 *****************************************************/
-void clrman::histoEqual(cv::Mat &src, cv::Mat &dst) {
+void clrman::histoEqualSep(cv::Mat &src, cv::Mat &dst) {
     int channels = src.channels();
     // crash the program if images with weird formats comes in
     assert(channels == 1 || channels == 3);
@@ -93,6 +93,28 @@ void clrman::histoEqual(cv::Mat &src, cv::Mat &dst) {
         // merge into one rgb mat
         cv::merge(channelContainer,3,dst);
     }
+}
+
+
+/*****************************************************
+ * this function implements histogram equalization on
+ * YUV space, that way we just have to deal with channel
+ * Y, and leave the color information alone so that
+ * the result don't get distorted
+*****************************************************/
+void clrman::histoEqual(cv::Mat &src, cv::Mat &dst) {
+    assert(src.channels() == 3);
+    // convert source image to YUV space
+    cv::cvtColor(src,dst,CV_BGR2YCrCb);
+    // split into YUV channels
+    cv::Mat channelContainers[3];
+    cv::split(dst,channelContainers);
+    // perform histogram equalization only to Y channel
+    cv::equalizeHist(channelContainers[0],channelContainers[0]);
+    // merge into one piece
+    cv::merge(channelContainers,3,dst);
+    // convert back to rgb so that it gets displayed properly
+    cv::cvtColor(dst,dst,CV_YUV2BGR);
 }
 
 /*****************************************************

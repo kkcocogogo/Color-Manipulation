@@ -1,3 +1,5 @@
 <RCC>
-    <qresource prefix="/Image"/>
+    <qresource prefix="/Image">
+        <file>WebSafeTarget.png</file>
+    </qresource>
 </RCC>

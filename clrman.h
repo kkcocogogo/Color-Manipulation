@@ -22,6 +22,7 @@ void pseudoColor(cv::Mat &src, cv::Mat &dst, double upperBound, double lowerBoun
 
 void pseudoColor(cv::Mat &gray_src, cv::Mat &rgb_dst);
 
+void histoEqualSep(cv::Mat &src, cv::Mat &dst);
 void histoEqual(cv::Mat &src, cv::Mat &dst);
 }
 #endif // CLRMAN_H

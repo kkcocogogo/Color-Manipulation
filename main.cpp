@@ -26,9 +26,11 @@ int main(int argc, char *argv[])
         imshow("web safe color",dst);
         waitKey();
         // histogram equalization
+        clrman::histoEqualSep(rgbimage,dst);
+        imshow("after separate histo equal",dst);
         clrman::histoEqual(rgbimage,dst);
-        imshow("after histo equalization",dst);
-        imshow("read case rgb image",rgbimage);
+        imshow("the 'right' way to equalize histogram",dst);
+        imshow("real case rgb image",rgbimage);
         waitKey();
     }
 
