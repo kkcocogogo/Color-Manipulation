@@ -36,6 +36,7 @@
 对图片做直方图均衡的函数是`histoEqual`，代码简单易懂请直接阅读。这里只给出运行结果：
 
 ![original image](rgbImage.tif)
+
 ![histogram equalization result](histoResult.png)
 
 [clrman.cpp]:https://github.com/kkcocogogo/Color-Manipulation/blob/master/clrman.cpp
