@@ -3,6 +3,7 @@
 
 #include <opencv2/core/core.hpp>
 #include <opencv2/highgui/highgui.hpp>
+#include <opencv2/imgproc/imgproc.hpp>
 #include <math.h>
 #include <iostream>
 
@@ -20,5 +21,7 @@ template<typename GRAY_TYPE, typename RGB_TYPE>
 void pseudoColor(cv::Mat &src, cv::Mat &dst, double upperBound, double lowerBound, int channel );
 
 void pseudoColor(cv::Mat &gray_src, cv::Mat &rgb_dst);
+
+void histoEqual(cv::Mat &src, cv::Mat &dst);
 }
 #endif // CLRMAN_H

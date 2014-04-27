@@ -14,14 +14,16 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-    clrman.cpp
+    clrman.cpp \
+    pseudomanwindow.cpp
 
 HEADERS  += mainwindow.h \
-    clrman.h
+    clrman.h \
+    pseudomanwindow.h
 
 win32 {
 # put windows configuration below
-# please modify these definitions before you compile
+# PLEASE MODIFY THESE DEFINITIONS BEFORE YOU COMPILE
 message("Using windows configuration")
 OPENCV_PATH = /usr/local/include
 LIBS_PATH = /usr/local/lib

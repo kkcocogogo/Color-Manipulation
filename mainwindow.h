@@ -2,18 +2,10 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include <QGraphicsScene>
-#include <QGraphicsView>
-#include <QFileDialog>
-#include <QString>
-#include <QLabel>
-#include <QBoxLayout>
-#include <QSlider>
-#include <QAction>
-#include <QMenu>
-#include <QMenuBar>
-#include <QGraphicsPixmapItem>
+#include <QtGui>
+#include <QtWidgets>
 #include "clrman.h" // holds all the opencv headers, functions
+#include "pseudomanwindow.h"
 
 class MainWindow : public QMainWindow
 {
@@ -26,12 +18,16 @@ public:
 
 private:
     // build the GUI using Qt stuff
+    QWidget *mainWidget;
+    QPushButton
+    *setImageButton,
+    *pseudoColorButton,
+    *webSafeColorButton;
     QBoxLayout *mainLayout;
-    QGraphicsView *imageView;
-    QGraphicsScene *imageScene;
-    QSlider *slider;
-    QGraphicsPixmapItem *pixmapItem4display;
-    QAction *setImageAct;
+    QAction
+    *setImageAct,
+    *webSafeAct,
+    *pseudoAct;
     QMenu *fileMenu;
 
     void createMenus();
@@ -41,7 +37,7 @@ private:
     cv::Mat sourceImage;
 
 private slots:
-
+    void on_pseudoColorButton_clicked();
     void setImage();
 
 };

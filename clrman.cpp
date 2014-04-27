@@ -26,6 +26,7 @@ void clrman::cvt2websafe(cv::Mat& src, cv::Mat& dst) {
 }
 
 /*****************************************************
+ * THIS FUNCTION IS CONSIDERED USELESS
  * clrman::pseudoColor function
  * the function work with RGB images with arbitrary depth
  * there's no reason to use double for threthold values,
@@ -94,10 +95,6 @@ void clrman::pseudoColor(cv::Mat &gray_src, cv::Mat &rgb_dst) {
     cv::MatIterator_<double> it_src = double_src.begin<double>();
     cv::MatIterator_<cv::Vec3d> it_dst = rgb_dst.begin<cv::Vec3d>();
     cv::MatIterator_<double> it_end = double_src.end<double>();
-    // obtain a copy of the brightest value within source image
-    //    const double
-    //            src_max = *(std::max_element(it_src, it_end)),
-    //            src_min = *(std::min_element(it_src, it_end));
 
     for(; it_src != it_end; it_src ++, it_dst ++) {
         double pixGrayLevel_src = *it_src;
@@ -105,17 +102,25 @@ void clrman::pseudoColor(cv::Mat &gray_src, cv::Mat &rgb_dst) {
         (*it_dst)[0] = fabs(sin( pixGrayLevel_src * 2));
         (*it_dst)[1] = fabs(sin( pixGrayLevel_src * 2 + (-0.1) * M_PI));
         (*it_dst)[2] = fabs(sin( pixGrayLevel_src * 2 + (-0.3) * M_PI));
-
-//        {
-//            using namespace std;
-//            using namespace cv;
-//            imshow("current",rgb_dst);
-//            waitKey(1);
-//            cout<<*it_dst<<endl;
-//            cv::waitKey();
-//        }
-
     }
-    // normalize dst so that it can be perceived by eye
-//    cv::normalize(rgb_dst, rgb_dst, 1, 0, cv::NORM_MINMAX);
+}
+
+/*****************************************************
+ * this function implements histogram equalization on all
+ * three channels separately
+*****************************************************/
+void clrman::histoEqual(cv::Mat &src, cv::Mat &dst) {
+    int channels = src.channels();
+    assert(channels == 1 || channels == 3);
+    if(channels == 1) cv::equalizeHist(src, dst);
+    else if(channels == 3){
+        cv::Mat channelContainer[3];
+        cv::split(src,channelContainer);
+        // equalize all 3 channels
+        cv::equalizeHist(channelContainer[0],channelContainer[0]);
+        cv::equalizeHist(channelContainer[1],channelContainer[1]);
+        cv::equalizeHist(channelContainer[2],channelContainer[2]);
+        // merge into one rgb mat
+        cv::merge(channelContainer,3,dst);
+    }
 }
