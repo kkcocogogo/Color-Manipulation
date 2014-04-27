@@ -6,10 +6,10 @@ int main(int argc, char *argv[])
 {
     {
         using namespace cv;
-        Mat gradBW = cv::imread("/Users/timfeirg/Documents/Color-Manipulation/gradBW.tif",0);
+        Mat gradBW = cv::imread("/Users/timfeirg/Documents/Color-Manipulation/gradBW.png",0);
         Mat rgbcube = cv::imread("/Users/timfeirg/Documents/Color-Manipulation/WebSafeTarget.png");
-        Mat rgbimage = cv::imread("/Users/timfeirg/Documents/Color-Manipulation/rgbImage.tif");
-        Mat washinton = imread("/Users/timfeirg/Documents/Color-Manipulation/washinton.tif");
+        Mat rgbimage = cv::imread("/Users/timfeirg/Documents/Color-Manipulation/rgbImage.png");
+        Mat washinton = imread("/Users/timfeirg/Documents/Color-Manipulation/washinton.png");
         Mat dst;
         // pseudo color problem
         clrman::pseudoColor(gradBW,dst);
