@@ -1,5 +1,8 @@
 <RCC>
     <qresource prefix="/Image">
-        <file>TargetImage.png</file>
+        <file>washinton.tif</file>
+        <file>WebSafeTarget.png</file>
+        <file>gradBW.tif</file>
+        <file>rgbImage.tif</file>
     </qresource>
 </RCC>
