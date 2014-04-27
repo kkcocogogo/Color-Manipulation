@@ -20,23 +20,21 @@
 ### 项目06-02：伪彩色
 转换成伪彩色的函数是`pseudoColor`
 本实验中伪彩色算法中使用的映射关系由以下两张图表示：
-
+黑白渐变：
 ![黑白渐变](gradBW.tif)
-
+伪彩映射：
 ![映射关系](pseudoColorMap.png)
-
-而实际转换效果如下：
-
+原图：
 ![washinton](washinton.tif)
-
+实际转换效果如下：
 ![pseudoResult](pseudoResult.png)
 
 ### 项目06-03：直方图均衡
 
 对图片做直方图均衡的函数是`histoEqual`，代码简单易懂请直接阅读。这里只给出运行结果：
-
+原图：
 ![original image](rgbImage.tif)
-
+直方图均衡后：
 ![histogram equalization result](histoResult.png)
 
 [clrman.cpp]:https://github.com/kkcocogogo/Color-Manipulation/blob/master/clrman.cpp
