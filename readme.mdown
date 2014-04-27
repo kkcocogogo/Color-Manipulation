@@ -17,6 +17,9 @@
 
 ![安全颜色](WebSafeColorResult.png)
 
+转换成web safe color后出现色块的问题：
+每两个相邻色块只在一个颜色分量上相差51，这51的差距造成的色差导致颜色的不均一，在安全色下是找不到过渡色的，所以色块的问题无法避免的。
+
 ### 项目06-02：伪彩色
 转换成伪彩色的函数是`pseudoColor`
 本实验中伪彩色算法中使用的映射关系由以下两张图表示：
@@ -54,6 +57,10 @@ RGB通道分别做直方图均衡后：
 对Y通道做直方图均衡后：
 
 ![Y channel histogram equalization](histoResult2.png)
+
+关于YUV下直方图均衡：
+
+Y的生成是RGB的某种加权平均（根据YUV标准有别），权重的设置是为了黑白（电视）显示下对人眼的友好。在Y通道下做均衡就是RGB的这种加权取平均后的均衡，与实验手册中第二问结果确实不一样但是想法是类似的。如果希望实现实验手册中第二问，可以将RGB三个通道相加取平均，再按照单通道的方法进行直方图均衡。
 
 [clrman.cpp]:https://github.com/kkcocogogo/Color-Manipulation/blob/master/clrman.cpp
 [lab]:https://onedrive.live.com/redir?resid=73E70F9DE102435A%212874

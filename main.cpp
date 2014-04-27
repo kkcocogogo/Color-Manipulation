@@ -45,5 +45,3 @@ int main(int argc, char *argv[])
     //        mainwindow.show();
     //        return colorManipulation.exec();
 }
-
-
