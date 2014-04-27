@@ -2,19 +2,41 @@
 
 这是一份中山大学医学图像处理课程实验报告，描述《数字图像处理》[实验手册][lab]中06-01到06-04项目。
 
+*   本次实验所有相关的函数都封装在[`clrman::`][clrman.cpp]下，`main.cpp`里只是对这些子函数做了简单调用，其他文件与本实验无关，可以直接阅读[`corman.cpp`][clrman.cpp]里边的代码。
+*   `.pro`文件里边的windows下配置需要修改才能运行哦。
+
 ### 项目06-01：色彩转换-RGB图片转换成“网络安全色彩”（Web safe color）
 
 程序非常简单，请直接参考[`void cvtToWebSafe(Mat&, Mat&)`][cvtToWebSafe]子函数。效果如下：
 
 原图片：
 
-![原图片](TargetImage.png)
+![原图片](WebSafeTarget.png)
 
 转换成Web safe color：
 
 ![安全颜色](WebSafeColorResult.png)
 
+### 项目06-02：伪彩色
+转换成伪彩色的函数是`pseudoColor`
+本实验中伪彩色算法中使用的映射关系由以下两张图表示：
 
+![黑白渐变](gradBW.tif)
+![映射关系](pseudoColorMap.png)
+
+而实际转换效果如下：
+
+![washinton](washinton.tif)
+![pseudoResult](pseudoResult.png)
+
+### 项目06-03：直方图均衡
+
+对图片做直方图均衡的函数是`histoEqual`，代码简单易懂请直接阅读。这里只给出运行结果：
+
+![original image](rgbImage.tif)
+![histogram equalization result](histoResult.png)
+
+[clrman.cpp]:https://github.com/kkcocogogo/Color-Manipulation/blob/master/clrman.cpp
 [lab]:https://onedrive.live.com/redir?resid=73E70F9DE102435A%212874
 [cvtToWebSafe]:https://github.com/kkcocogogo/Basic-Color-Manipulation/blob/master/cvtToWebSafe.cpp
 
