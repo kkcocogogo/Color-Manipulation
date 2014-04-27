@@ -22,11 +22,13 @@
 本实验中伪彩色算法中使用的映射关系由以下两张图表示：
 
 ![黑白渐变](gradBW.tif)
+
 ![映射关系](pseudoColorMap.png)
 
 而实际转换效果如下：
 
 ![washinton](washinton.tif)
+
 ![pseudoResult](pseudoResult.png)
 
 ### 项目06-03：直方图均衡
