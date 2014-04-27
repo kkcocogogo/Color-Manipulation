@@ -23,7 +23,7 @@
 
 黑白渐变：
 
-![黑白渐变](gradBW.tif)
+![黑白渐变](gradBW.png)
 
 伪彩映射：
 
@@ -31,7 +31,7 @@
 
 原图：
 
-![washinton](washinton.tif)
+![washinton](washinton.png)
 
 实际转换效果如下：
 
@@ -43,7 +43,7 @@
 
 原图：
 
-![original image](rgbImage.tif)
+![original image](rgbImage.png)
 
 直方图均衡后：
 
